@@ -15,27 +15,37 @@
 
   <ItemGroup>
     <AvaloniaResource Remove="Assets\Icons\AC.png" />
+    <AvaloniaResource Remove="Assets\Icons\AC.svg" />
+    <AvaloniaResource Remove="Assets\Icons\cloud.svg" />
     <AvaloniaResource Remove="Assets\Icons\Div.png" />
+    <AvaloniaResource Remove="Assets\Icons\Div.svg" />
     <AvaloniaResource Remove="Assets\Icons\DivDark.png" />
+    <AvaloniaResource Remove="Assets\Icons\DivDark.svg" />
     <AvaloniaResource Remove="Assets\Icons\Equals.png" />
+    <AvaloniaResource Remove="Assets\Icons\Equals.svg" />
     <AvaloniaResource Remove="Assets\Icons\Minus.png" />
+    <AvaloniaResource Remove="Assets\Icons\Minus.svg" />
     <AvaloniaResource Remove="Assets\Icons\MinusDark.png" />
+    <AvaloniaResource Remove="Assets\Icons\MinusDark.svg" />
     <AvaloniaResource Remove="Assets\Icons\Mode.png" />
+    <AvaloniaResource Remove="Assets\Icons\Mode.svg" />
     <AvaloniaResource Remove="Assets\Icons\ModeDark.png" />
+    <AvaloniaResource Remove="Assets\Icons\ModeDark.svg" />
     <AvaloniaResource Remove="Assets\Icons\Mult.png" />
+    <AvaloniaResource Remove="Assets\Icons\Mult.svg" />
     <AvaloniaResource Remove="Assets\Icons\MultDark.png" />
+    <AvaloniaResource Remove="Assets\Icons\MultDark.svg" />
     <AvaloniaResource Remove="Assets\Icons\Percent.png" />
+    <AvaloniaResource Remove="Assets\Icons\Percent.svg" />
     <AvaloniaResource Remove="Assets\Icons\PercentDark.png" />
+    <AvaloniaResource Remove="Assets\Icons\PercentDark.svg" />
     <AvaloniaResource Remove="Assets\Icons\Plus.png" />
+    <AvaloniaResource Remove="Assets\Icons\Plus.svg" />
     <AvaloniaResource Remove="Assets\Icons\PlusDark.png" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Assets\Icons\ModeDark.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ApplicationDefinition Include="Assets\Icons\ModeDark.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,19 +60,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\Icons\AC.png" />
-    <Resource Include="Assets\Icons\Div.png" />
-    <Resource Include="Assets\Icons\DivDark.png" />
-    <Resource Include="Assets\Icons\Equals.png" />
-    <Resource Include="Assets\Icons\Minus.png" />
-    <Resource Include="Assets\Icons\MinusDark.png" />
-    <Resource Include="Assets\Icons\Mode.png" />
-    <Resource Include="Assets\Icons\ModeDark.png" />
-    <Resource Include="Assets\Icons\Mult.png" />
-    <Resource Include="Assets\Icons\MultDark.png" />
-    <Resource Include="Assets\Icons\Percent.png" />
-    <Resource Include="Assets\Icons\PercentDark.png" />
-    <Resource Include="Assets\Icons\Plus.png" />
-    <Resource Include="Assets\Icons\PlusDark.png" />
+    <Resource Include="Assets\Icons\AC.svg" />
+    <Resource Include="Assets\Icons\Div.svg" />
+    <Resource Include="Assets\Icons\DivDark.svg" />
+    <Resource Include="Assets\Icons\Equals.svg" />
+    <Resource Include="Assets\Icons\Minus.svg" />
+    <Resource Include="Assets\Icons\MinusDark.svg" />
+    <Resource Include="Assets\Icons\Mode.svg" />
+    <Resource Include="Assets\Icons\ModeDark.svg" />
+    <Resource Include="Assets\Icons\Mult.svg" />
+    <Resource Include="Assets\Icons\MultDark.svg" />
+    <Resource Include="Assets\Icons\Percent.svg" />
+    <Resource Include="Assets\Icons\PercentDark.svg" />
+    <Resource Include="Assets\Icons\Plus.svg" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
@@ -10,24 +11,19 @@ using System.Globalization;
 using System.Linq;
 
 
+
 namespace calculato_app_avalonia.Views
 {
     public partial class MainWindow : Window
     {
         public void LightMode()
         {
-            var ImageToView = new Bitmap("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Mode.png");
-            Mode.Source = ImageToView;
-            ImageToView = new Bitmap("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Div.png");
-            Div.Source = ImageToView;
-            ImageToView = new Bitmap("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Minus.png");
-            Minus.Source = ImageToView;
-            ImageToView = new Bitmap("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Mult.png");
-            Mult.Source = ImageToView;
-            ImageToView = new Bitmap("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Percent.png");
-            Percent.Source = ImageToView;
-            ImageToView = new Bitmap("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Plus.png");
-            Plus.Source = ImageToView;
+            Mode.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Mode.svg", UriKind.Relative).ToString();
+            Percent.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Percent.svg", UriKind.Relative).ToString();
+            Div.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Div.svg", UriKind.Relative).ToString();
+            Mult.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Mult.svg", UriKind.Relative).ToString();
+            Minus.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Minus.svg", UriKind.Relative).ToString();
+            Add.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Plus.svg", UriKind.Relative).ToString();
             TopBlock.Background = new SolidColorBrush(Color.Parse("White"));
             Expression.Background = new SolidColorBrush(Color.Parse("White"));
             txtTotal.Background = new SolidColorBrush(Color.Parse("White"));
@@ -67,18 +63,12 @@ namespace calculato_app_avalonia.Views
         }
         private void DarkMode()
         {
-            var ImageToView = new Bitmap("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/ModeDark.png");
-            Mode.Source = ImageToView;
-            ImageToView = new Bitmap("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/DivDark.png");
-            Div.Source = ImageToView;
-            ImageToView = new Bitmap("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/MinusDark.png");
-            Minus.Source = ImageToView;
-            ImageToView = new Bitmap("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/MultDark.png");
-            Mult.Source = ImageToView;
-            ImageToView = new Bitmap("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/PercentDark.png");
-            Percent.Source = ImageToView;
-            ImageToView = new Bitmap("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/PlusDark.png");
-            Plus.Source = ImageToView;
+            Mode.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/ModeDark.svg", UriKind.Relative).ToString();
+            Percent.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/PercentDark.svg", UriKind.Relative).ToString();
+            Div.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/DivDark.svg", UriKind.Relative).ToString();
+            Mult.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/MultDark.svg", UriKind.Relative).ToString();
+            Minus.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/MinusDark.svg", UriKind.Relative).ToString();
+            Add.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/PlusDark.svg", UriKind.Relative).ToString();
             TopBlock.Background = new SolidColorBrush(Color.Parse("#212327"));
             Expression.Background = new SolidColorBrush(Color.Parse("#212327"));
             txtTotal.Background = new SolidColorBrush(Color.Parse("#212327"));
@@ -146,23 +136,134 @@ namespace calculato_app_avalonia.Views
 #if DEBUG
             this.AttachDevTools();
 #endif
+            this.KeyDown += MainWindow_KeyDown;
+        }
+        private void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
+            switch (e.Key)
+            {
+                case Key.Enter:
+                    ButtonEquals_Click(ButtonEquals, null);
+                    enterKeyPressed = true; // Set the flag
+                    break;
+                case Key.D0:
+                case Key.NumPad0:
+                    Button_Click(Button0, null);
+                    break;
+                case Key.D1:
+                case Key.NumPad1:
+                    Button_Click(Button1, null);
+                    break;
+                case Key.D2:
+                case Key.NumPad2:
+                    Button_Click(Button2, null);
+                    break;
+                case Key.D3:
+                case Key.NumPad3:
+                    Button_Click(Button3, null);
+                    break;
+                case Key.D4:
+                case Key.NumPad4:
+                    Button_Click(Button4, null);
+                    break;
+                case Key.D5:
+                case Key.NumPad5:
+                    if (e.KeyModifiers.HasFlag(KeyModifiers.Shift))
+                    {
+                        ButtonPercent_Click(ButtonPercent, null);
+                    }
+                    else
+                    {
+                        Button_Click(Button5, null);
+                    }
+                    break;
+                case Key.D6:
+                case Key.NumPad6:
+                    Button_Click(Button6, null);
+                    break;
+                case Key.D7:
+                case Key.NumPad7:
+                    Button_Click(Button7, null);
+                    break;
+                case Key.D8:
+                case Key.NumPad8:
+                    if (e.KeyModifiers.HasFlag(KeyModifiers.Shift))
+                    {
+                        Operation_Click(ButtonMult, null);
+                    }
+                    else
+                    {
+                        Button_Click(Button8, null);
+                    }
+                    break;
+                case Key.D9:
+                case Key.NumPad9:
+                    Button_Click(Button9, null);
+                    break;
+                case Key.Add:
+                case Key.OemPlus:
+                    if (!e.KeyModifiers.HasFlag(KeyModifiers.Shift))
+                    {
+                        ButtonEquals_Click(ButtonEquals, null);
+                    }
+                    else
+                    {
+                        Operation_Click(ButtonAdd, null);
+                    }
+                    break;
+                case Key.Subtract:
+                case Key.OemMinus:
+                    Operation_Click(ButtonMinus, null);
+                    break;
+                case Key.Multiply:
+                    Operation_Click(ButtonMult, null);
+                    break;
+                case Key.Divide:
+                    Operation_Click(ButtonDiv, null);
+                    break;
+                case Key.Oem2:
+                    Operation_Click(ButtonDiv, null);
+                    break;
+                case Key.OemPeriod:
+                case Key.Decimal:
+                    ButtonDot_Click(ButtonDot, null);
+                    break;
+                case Key.Delete:
+                    ButtonClear_Click(ButtonClear, null);
+                    break;
+                case Key.Back:
+                    Backspace_Click(null, null);
+                    break;
+            }
         }
         private UserControl originalContent;
         private string option { get; set; }
-        private double num1 { get; set; }
-        private double num2 { get; set; }
         private double result { get; set; }
-        private  bool equals {get; set;}
 
-        private void Button_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private bool mode = false;
+
+        private bool percentClicked = false;
+        private bool equals { get; set; }
+
+        private string lastOperator;
+
+        private double lastOperand;
+
+        private bool enterKeyPressed = false;
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             string buttonText = button.Content.ToString();
+
             if (txtTotal.Text == "Invalid Format")
             {
                 txtTotal.Text = "";
                 Expression.Text = "";
             }
+
             if (Expression.Text == "0")
             {
                 if (buttonText != "0" && buttonText != "+" && buttonText != "-" && buttonText != "*" && buttonText != "/")
@@ -176,35 +277,64 @@ namespace calculato_app_avalonia.Views
                     Expression.Text = "0";
                 }
             }
-            else {
-                if (equals)
+            else
+            {
+                if (percentClicked)
+                {
+                    string[] parts = Expression.Text.Split(' ');
+
+                    List<string> intermediateParts = new List<string>(parts);
+
+                    if (intermediateParts.Count > 0)
+                    {
+                        intermediateParts[intermediateParts.Count - 1] = buttonText;
+                        Expression.Text = string.Join(" ", intermediateParts);
+                        txtTotal.Text = buttonText;
+                    }
+
+                    percentClicked = false; // Reset the flag
+                }
+                else if (equals)
                 {
                     txtTotal.Text = buttonText;
-                    Expression.Text += buttonText;
+                    Expression.Text = buttonText;
+                    equals = false;
                 }
-                else
+                else if ((Expression.Text.EndsWith(" + 0") || Expression.Text.EndsWith(" - 0") || Expression.Text.EndsWith(" * 0") || Expression.Text.EndsWith(" / 0")))
                 {
-                    if (buttonText == ".")
+                    if (Expression.Text.Length > 2)
                     {
-                        if (!txtTotal.Text.Contains("."))
-                        {
-                            txtTotal.Text += buttonText;
-                            Expression.Text += buttonText;
-                        }
+                        Expression.Text = Expression.Text.Substring(0, Expression.Text.Length - 1) + buttonText;
                     }
                     else
                     {
-                        txtTotal.Text += buttonText;
-                        Expression.Text += buttonText;
+                        Expression.Text = buttonText;
+                    }
+
+                    if (txtTotal.Text.Length > 1)
+                    {
+                        txtTotal.Text = txtTotal.Text.Substring(0, txtTotal.Text.Length - 1) + buttonText;
+                    }
+                    else
+                    {
+                        txtTotal.Text = buttonText;
                     }
                 }
+                else
+                {
+                    txtTotal.Text += buttonText;
+                    Expression.Text += buttonText;
+                }
+                
+
             }
+            this.Focus();
         }
         private void Operation_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            if (string.IsNullOrEmpty(Expression.Text)) 
-            { 
+            if (string.IsNullOrEmpty(Expression.Text))
+            {
                 return;
             }
             if (!string.IsNullOrEmpty(txtTotal.Text))
@@ -212,11 +342,12 @@ namespace calculato_app_avalonia.Views
                 txtTotal.Text = "";
             }
             option = button.Tag.ToString();
-            if (!string.IsNullOrEmpty(Expression.Text) && IsOperator(Expression.Text.Last().ToString()))
+            equals = false;
+            if (IsOperator(Expression.Text.Last().ToString()))
             {
                 Expression.Text = Expression.Text.Substring(0, Expression.Text.Length - 1) + " " + option + " ";
             }
-            else if (!string.IsNullOrEmpty(Expression.Text) && IsOperator(Expression.Text.Trim().Substring(Expression.Text.Trim().LastIndexOf(' ') + 1)))
+            else if (IsOperator(Expression.Text.Trim().Substring(Expression.Text.Trim().LastIndexOf(' ') + 1)))
             {
                 int lastIndex = Expression.Text.Trim().LastIndexOf(' ');
                 Expression.Text = Expression.Text.Substring(0, lastIndex + 1) + option + " ";
@@ -225,10 +356,13 @@ namespace calculato_app_avalonia.Views
             {
                 Expression.Text += " " + option + " ";
             }
+            this.Focus();
         }
 
-        private void ButtonEquals_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private void ButtonEquals_Click(object sender, RoutedEventArgs e)
         {
+            if (!enterKeyPressed) {
+                equals = true;
             if (string.IsNullOrEmpty(Expression.Text) || Expression.Text.EndsWith("+ ") || Expression.Text.EndsWith("- ") || Expression.Text.EndsWith("* ") || Expression.Text.EndsWith("/ "))
             {
                 txtTotal.Text = "Invalid Format";
@@ -241,19 +375,11 @@ namespace calculato_app_avalonia.Views
             List<string> intermediateParts = new List<string>();
             for (int i = 0; i < parts.Length; i++)
             {
-                if (parts[i] == "*")
+                if (parts[i] == "*" || parts[i] == "/")
                 {
-                    double leftOperand = double.Parse(intermediateParts[intermediateParts.Count - 1], CultureInfo.InvariantCulture);
+                    double leftOperand = double.Parse(intermediateParts[intermediateParts.Count - 1]);
                     double rightOperand = double.Parse(parts[i + 1], CultureInfo.InvariantCulture);
-                    double result = leftOperand * rightOperand;
-                    intermediateParts[intermediateParts.Count - 1] = result.ToString(CultureInfo.InvariantCulture);
-                    i++;
-                }
-                else if (parts[i] == "/")
-                {
-                    double leftOperand = double.Parse(intermediateParts[intermediateParts.Count - 1], CultureInfo.InvariantCulture);
-                    double rightOperand = double.Parse(parts[i + 1], CultureInfo.InvariantCulture);
-                    double result = leftOperand / rightOperand;
+                    result = parts[i] == "*" ? leftOperand * rightOperand : leftOperand / rightOperand;
                     intermediateParts[intermediateParts.Count - 1] = result.ToString(CultureInfo.InvariantCulture);
                     i++;
                 }
@@ -275,10 +401,51 @@ namespace calculato_app_avalonia.Views
                     finalResult -= double.Parse(intermediateParts[i + 1], CultureInfo.InvariantCulture);
                 }
             }
+            lastOperator = parts[parts.Length - 1].ToString();
+
+
+            if (equals)
+            {
+
+                switch (lastOperator)
+                {
+                    case "+":
+                        finalResult += lastOperand;
+                        break;
+                    case "-":
+                        finalResult -= lastOperand;
+                        break;
+                    case "*":
+                        finalResult *= lastOperand;
+                        break;
+                    case "/":
+                        if (lastOperand != 0)
+                        {
+                            finalResult /= lastOperand;
+                        }
+                        else
+                        {
+                            txtTotal.Text = "Error";
+                            return;
+                        }
+                        break;
+                }
+            }
+            else
+            {
+                lastOperator = intermediateParts.Count > 1 ? intermediateParts[1] : string.Empty;
+                lastOperand = intermediateParts.Count > 2 ? double.Parse(intermediateParts[2], CultureInfo.InvariantCulture) : 0;
+                equals = true;
+            }
+
             txtTotal.Text = finalResult.ToString("0.##########", CultureInfo.InvariantCulture);
             Expression.Text = finalResult.ToString("0.##########", CultureInfo.InvariantCulture);
-            equals = true;
+            this.Focus();
+            }
+            
         }
+
+
 
 
 
@@ -287,29 +454,46 @@ namespace calculato_app_avalonia.Views
             EnableAllButtons();
             txtTotal.Text = "";
             Expression.Text = "";
-            result = 0;
-            num1 = 0;
-            num2 = 0;
+            this.Focus();
         }
         private void ButtonPercent_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(Expression.Text) || Expression.Text.EndsWith("+ ") || Expression.Text.EndsWith("- ") || Expression.Text.EndsWith("* ") || Expression.Text.EndsWith("/ "))
+            if (string.IsNullOrEmpty(Expression.Text) || Expression.Text.EndsWith(" "))
             {
                 return;
             }
+
             string[] parts = Expression.Text.Split(' ');
-            for (int i = 0; i < parts.Length; i++)
+
+            if (parts.Length >= 3)
             {
-                if (parts[i] == txtTotal.Text)
-                {
-                    double num1 = double.Parse(txtTotal.Text);
-                    double result = num1 / 100;
-                    parts[i] = result.ToString();
-                    Expression.Text = string.Join(" ", parts);
-                    txtTotal.Text = result.ToString();
-                }
+                double previousNumber = double.Parse(parts[parts.Length - 3]);
+                double currentNumber = double.Parse(parts[parts.Length - 1]);
+
+                double result = (previousNumber * currentNumber) / 100;
+                parts[parts.Length - 1] = result.ToString("0.##########", CultureInfo.InvariantCulture);
+
+                Expression.Text = string.Join(" ", parts);
+                txtTotal.Text = result.ToString("0.##########", CultureInfo.InvariantCulture);
+                percentClicked = true;
             }
+            else if (parts.Length == 1)
+            {
+                double currentNumber = double.Parse(parts[0]);
+                double result = currentNumber / 100;
+
+                parts[0] = result.ToString("0.##########", CultureInfo.InvariantCulture);
+
+                Expression.Text = string.Join(" ", parts);
+                txtTotal.Text = result.ToString("0.##########", CultureInfo.InvariantCulture);
+
+                // Mark that percent was clicked
+                percentClicked = true;
+            }
+            this.Focus();
         }
+
+
 
         private void ButtonDot_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
@@ -337,6 +521,38 @@ namespace calculato_app_avalonia.Views
                 LightMode();
                 mode = false;
             }
+            this.Focus();
         }
+        private void Backspace_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtTotal.Text))
+            {
+                if (Expression.Text.Length == 1)
+                {
+                    txtTotal.Text = "0";
+                    Expression.Text = "0";
+                }
+                else
+                {
+                    txtTotal.Text = txtTotal.Text.Substring(0, txtTotal.Text.Length - 1);
+
+                    string[] expressionParts = Expression.Text.Split(' ');
+
+                    if (expressionParts[expressionParts.Length - 1].Length == 1)
+                    {
+                        expressionParts[expressionParts.Length - 1] = "";
+                    }
+                    else
+                    {
+                        expressionParts[expressionParts.Length - 1] = expressionParts[expressionParts.Length - 1].Substring(0, expressionParts[expressionParts.Length - 1].Length - 1);
+                    }
+
+                    Expression.Text = string.Join(" ", expressionParts);
+                }
+            }
+            this.Focus();
+        }
+
+
     }
 }
