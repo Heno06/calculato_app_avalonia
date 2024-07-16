@@ -117,16 +117,6 @@ namespace calculato_app_avalonia.Views
         }
         private void EnableAllButtons()
         {
-            Button0.IsEnabled = true;
-            Button1.IsEnabled = true;
-            Button2.IsEnabled = true;
-            Button3.IsEnabled = true;
-            Button4.IsEnabled = true;
-            Button5.IsEnabled = true;
-            Button6.IsEnabled = true;
-            Button7.IsEnabled = true;
-            Button8.IsEnabled = true;
-            Button9.IsEnabled = true;
             ButtonAdd.IsEnabled = true;
             ButtonMinus.IsEnabled = true;
             ButtonPercent.IsEnabled = true;
@@ -137,16 +127,6 @@ namespace calculato_app_avalonia.Views
         }
         private void DisableAllButtons()
         {
-            Button0.IsEnabled = false;
-            Button1.IsEnabled = false;
-            Button2.IsEnabled = false;
-            Button3.IsEnabled = false;
-            Button4.IsEnabled = false;
-            Button5.IsEnabled = false;
-            Button6.IsEnabled = false;
-            Button7.IsEnabled = false;
-            Button8.IsEnabled = false;
-            Button9.IsEnabled = false;
             ButtonAdd.IsEnabled = false;
             ButtonMinus.IsEnabled = false;
             ButtonPercent.IsEnabled = false;
@@ -174,7 +154,6 @@ namespace calculato_app_avalonia.Views
         private double result { get; set; }
         private  bool equals {get; set;}
 
-        private bool mode = false;
         private void Button_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             Button button = (Button)sender;
@@ -220,11 +199,7 @@ namespace calculato_app_avalonia.Views
                     }
                 }
             }
-            
         }
-
-
-
         private void Operation_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
@@ -332,7 +307,6 @@ namespace calculato_app_avalonia.Views
                     parts[i] = result.ToString();
                     Expression.Text = string.Join(" ", parts);
                     txtTotal.Text = result.ToString();
-                    break;
                 }
             }
         }
