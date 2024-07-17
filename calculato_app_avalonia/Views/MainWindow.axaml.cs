@@ -2,9 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 using Avalonia.Media;
-using Avalonia.Media.Imaging;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -137,6 +135,8 @@ namespace calculato_app_avalonia.Views
             this.AttachDevTools();
 #endif
             this.KeyDown += MainWindow_KeyDown;
+            EnableAllButtons();
+
             ButtonEquals.Focus();
         }
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
@@ -262,9 +262,10 @@ namespace calculato_app_avalonia.Views
         {
             EnableAllButtons();
             Button button = (Button)sender;
+
             string buttonText = button.Content.ToString();
 
-            if (txtTotal.Text == "Invalid Format")
+            if (txtTotal.Text == "Invalid Format" || txtTotal.Text == "Can't divide by 0")
             {
                 txtTotal.Text = "";
                 Expression.Text = "";
@@ -339,10 +340,15 @@ namespace calculato_app_avalonia.Views
         }
         private void Operation_Click(object sender, RoutedEventArgs e)
         {
+            EnableAllButtons();
             Button button = (Button)sender;
             if (string.IsNullOrEmpty(Expression.Text))
             {
                 return;
+            }
+            if (Expression.Text.EndsWith("."))
+            {
+                Expression.Text = Expression.Text.TrimEnd('.');
             }
             if (!string.IsNullOrEmpty(txtTotal.Text))
             {
@@ -370,14 +376,21 @@ namespace calculato_app_avalonia.Views
 
         private void ButtonEquals_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(Expression.Text) || Expression.Text.EndsWith("+ ") || Expression.Text.EndsWith("- ") || Expression.Text.EndsWith("* ") || Expression.Text.EndsWith("/ "))
+            if (Expression.Text == "-0" && txtTotal.Text == "-0")
             {
                 txtTotal.Text = "Invalid Format";
                 DisableAllButtons();
                 return;
             }
-
             string[] parts = Expression.Text.Split(' ');
+            if (Expression.Text.EndsWith("+ ") || Expression.Text.EndsWith("- ") || Expression.Text.EndsWith("* ") || Expression.Text.EndsWith("/ "))
+            {
+                string lastOperator = parts[parts.Length - 2];
+                string lastOperandStr = parts[parts.Length - 3];
+                double lastOperand = double.Parse(lastOperandStr, CultureInfo.InvariantCulture);
+                Expression.Text += lastOperand.ToString(CultureInfo.InvariantCulture);
+                parts = Expression.Text.Split(' ');
+            }
 
             List<string> intermediateParts = new List<string>();
             for (int i = 0; i < parts.Length; i++)
@@ -386,6 +399,12 @@ namespace calculato_app_avalonia.Views
                 {
                     double leftOperand = double.Parse(intermediateParts[intermediateParts.Count - 1]);
                     double rightOperand = double.Parse(parts[i + 1], CultureInfo.InvariantCulture);
+                    if (parts[i] == "/" && rightOperand == 0)
+                    {
+                        txtTotal.Text = "Can't divide by 0";
+                        DisableAllButtons();
+                        return;
+                    }
                     result = parts[i] == "*" ? leftOperand * rightOperand : leftOperand / rightOperand;
                     intermediateParts[intermediateParts.Count - 1] = result.ToString(CultureInfo.InvariantCulture);
                     i++;
@@ -435,28 +454,23 @@ namespace calculato_app_avalonia.Views
                         }
                         else
                         {
-                            txtTotal.Text = "Error";
+                            txtTotal.Text = "Can't divide by 0";
+                            DisableAllButtons();
                             return;
                         }
                         break;
                 }
             }
 
-            txtTotal.Text = finalResult.ToString("0.##########", CultureInfo.InvariantCulture);
-            Expression.Text = finalResult.ToString("0.##########", CultureInfo.InvariantCulture);
+            txtTotal.Text = finalResult.ToString();
+            Expression.Text = finalResult.ToString();
             ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
         }
-
-
-
-
-
-
         private void ButtonClear_Click(object sender, RoutedEventArgs e)
         {
             EnableAllButtons();
-            txtTotal.Text = "";
-            Expression.Text = "";
+            txtTotal.Text = "0";
+            Expression.Text = "0";
             ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
 
         }
@@ -493,6 +507,13 @@ namespace calculato_app_avalonia.Views
 
                 // Mark that percent was clicked
                 percentClicked = true;
+            }
+            if (Expression.Text == "-0" && txtTotal.Text == "-0")
+            {
+                txtTotal.Text = "Invalid Format";
+                Expression.Text = "Invalid Format";
+                DisableAllButtons();
+                return;
             }
             ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
 
@@ -534,7 +555,15 @@ namespace calculato_app_avalonia.Views
         }
         private void Backspace_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtTotal.Text))
+            if (txtTotal.Text == "Invalid Format")
+            {
+                EnableAllButtons();
+                txtTotal.Text = "";
+                Expression.Text = "";
+                ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
+
+            }
+            else if (!string.IsNullOrEmpty(txtTotal.Text))
             {
                 if (Expression.Text.Length == 1)
                 {
@@ -559,9 +588,7 @@ namespace calculato_app_avalonia.Views
                     Expression.Text = string.Join(" ", expressionParts);
                 }
             }
-            ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
-
-            //this.Focus();
+            ButtonEquals.Focus();
         }
 
 

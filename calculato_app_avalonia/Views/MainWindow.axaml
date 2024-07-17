@@ -10,15 +10,16 @@
 	   x:DataType="vm:MainWindowViewModel"
 	   Icon="/Assets/avalonia-logo.ico"
 	   xmlns:avaloniaSvg="clr-Namespace:Avalonia.Controls;assembly=Avalonia.Svg"
-	   Title="calculato_app_avalonia">
-
-
+	   Title="calculato_app_avalonia"
+		Background="#F5F5F5">
 	<Design.DataContext>
+		
 		<!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
 		<vm:MainWindowViewModel/>
 	</Design.DataContext>
 	<Grid RowDefinitions="202, *">
+		
 		<Grid Background="White" Name="TopBlock"  Grid.Row="0" RowDefinitions="67,Auto, *">
 			<Grid Grid.Row="1" ColumnDefinitions="*, 53">
 				<TextBlock x:Name="Expression" TextElement.Foreground="#637381" FontFamily="Arimo Hebrew Subset" Background="White" HorizontalAlignment="Right" Grid.Row="1" FontSize="20">0</TextBlock>
@@ -27,8 +28,8 @@
 				<TextBlock x:Name="txtTotal" TextElement.Foreground="#1E1E1E" FontWeight="Bold" FontFamily="Arimo Hebrew Subset" Background="White" FontSize="48" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2">0</TextBlock>
 			</Grid>
 		</Grid>
-		<Grid Name="BottomBlock" Background="#F5F5F5" Grid.Row="1" RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*,*">
-			<Button Name="ButtonMode" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#E9E9E9" Background="#F5F5F5" CornerRadius="32" Margin="16" Width="64" Height="64" Grid.Row="0" Grid.Column="0" Click="Mode_Click">
+		<Grid Name="BottomBlock"  Grid.Row="1" RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*,*">
+			<Button Name="ButtonMode" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#E9E9E9" BorderThickness="1" Background="#F5F5F5" CornerRadius="32" Margin="16" Width="64" Height="64" Grid.Row="0" Grid.Column="0" Click="Mode_Click">
 				<Svg Name="Mode" Height="18" Width="18" Path="/Assets/Icons/Mode.svg"/>
 			</Button>
 			<Button Name="ButtonPercent" Content="%" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontWeight="Bold" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="0" Grid.Column="1" Click="ButtonPercent_Click">
@@ -41,12 +42,14 @@
 				</Button.Styles>
 				<Svg Name="Percent" Height="18" Width="18" Path="/Assets/Icons/Percent.svg"/>
 			</Button>
-			<Button Name="ButtonDiv" Tag="/" Content="/" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontWeight="Bold" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="0" Grid.Column="2" Click="Operation_Click">
+			<Button IsEnabled="True" Name="ButtonDiv" Tag="/" Content="/" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontWeight="Bold" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="0" Grid.Column="2" Click="Operation_Click">
 				<Button.Styles>
 					<Style Selector="Button:pointerover /template/ ContentPresenter">
 						<Setter Property="Background" Value="#F53263"></Setter>
 					</Style>
+					
 				</Button.Styles>
+				
 				<Svg Name="Div" Height="18" Width="18" Path="/Assets/Icons/Div.svg"/>
 			</Button>
 			<Button Name="ButtonMult" Tag="*" Content="*" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontWeight="Bold" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="0" Grid.Column="3" Click="Operation_Click">
@@ -79,7 +82,7 @@
 				</Button.Styles>
 				9
 			</Button>
-			<Button x:Name="ButtonMinus" Tag="-" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="1" Grid.Column="3" Click="Operation_Click">
+			<Button x:Name="ButtonMinus" Tag="-" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="1" Grid.Column="3" Click="Operation_Click">
 				<Button.Styles>
 					<Style Selector="Button:pointerover /template/ ContentPresenter">
 						<Setter Property="Background" Value="#F53263"></Setter>
@@ -169,7 +172,7 @@
 					<Style Selector="Button:pointerover /template/ ContentPresenter">
 						<Setter Property="Background" Value="#F53263"></Setter>
 					</Style>
-				</Button.Styles>0
+				</Button.Styles>
 			</Button>
 			<Button x:Name="ButtonDot" Content="." VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="4" Grid.Column="2" Click="ButtonDot_Click">
 				<Button.Styles>
