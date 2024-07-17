@@ -132,7 +132,6 @@ namespace calculato_app_avalonia.Views
             InitializeComponent();
             this.WindowState = WindowState.Maximized;
 #if DEBUG
-            this.AttachDevTools();
 #endif
             this.KeyDown += MainWindow_KeyDown;
             EnableAllButtons();
