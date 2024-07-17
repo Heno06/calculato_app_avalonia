@@ -16,12 +16,12 @@ namespace calculato_app_avalonia.Views
     {
         public void LightMode()
         {
-            Mode.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Mode.svg", UriKind.Relative).ToString();
-            Percent.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Percent.svg", UriKind.Relative).ToString();
-            Div.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Div.svg", UriKind.Relative).ToString();
-            Mult.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Mult.svg", UriKind.Relative).ToString();
-            Minus.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Minus.svg", UriKind.Relative).ToString();
-            Add.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/Plus.svg", UriKind.Relative).ToString();
+            Mode.Path = new Uri("/Assets/Icons/Mode.svg", UriKind.Relative).ToString();
+            Percent.Path = new Uri("/Assets/Icons/Percent.svg", UriKind.Relative).ToString();
+            Div.Path = new Uri("/Assets/Icons/Div.svg", UriKind.Relative).ToString();
+            Mult.Path = new Uri("/Assets/Icons/Mult.svg", UriKind.Relative).ToString();
+            Minus.Path = new Uri("/Assets/Icons/Minus.svg", UriKind.Relative).ToString();
+            Add.Path = new Uri("/Assets/Icons/Plus.svg", UriKind.Relative).ToString();
             TopBlock.Background = new SolidColorBrush(Color.Parse("White"));
             Expression.Background = new SolidColorBrush(Color.Parse("White"));
             txtTotal.Background = new SolidColorBrush(Color.Parse("White"));
@@ -61,12 +61,12 @@ namespace calculato_app_avalonia.Views
         }
         private void DarkMode()
         {
-            Mode.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/ModeDark.svg", UriKind.Relative).ToString();
-            Percent.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/PercentDark.svg", UriKind.Relative).ToString();
-            Div.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/DivDark.svg", UriKind.Relative).ToString();
-            Mult.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/MultDark.svg", UriKind.Relative).ToString();
-            Minus.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/MinusDark.svg", UriKind.Relative).ToString();
-            Add.Path = new Uri("C:/Users/begla/source/repos/calculato_app_avalonia/calculato_app_avalonia/Assets/Icons/PlusDark.svg", UriKind.Relative).ToString();
+            Mode.Path = new Uri("/Assets/Icons/ModeDark.svg", UriKind.Relative).ToString();
+            Percent.Path = new Uri("/Assets/Icons/PercentDark.svg", UriKind.Relative).ToString();
+            Div.Path = new Uri("/Assets/Icons/DivDark.svg", UriKind.Relative).ToString();
+            Mult.Path = new Uri("/Assets/Icons/MultDark.svg", UriKind.Relative).ToString();
+            Minus.Path = new Uri("/Assets/Icons/MinusDark.svg", UriKind.Relative).ToString();
+            Add.Path = new Uri("/Assets/Icons/PlusDark.svg", UriKind.Relative).ToString();
             TopBlock.Background = new SolidColorBrush(Color.Parse("#212327"));
             Expression.Background = new SolidColorBrush(Color.Parse("#212327"));
             txtTotal.Background = new SolidColorBrush(Color.Parse("#212327"));
@@ -519,9 +519,6 @@ namespace calculato_app_avalonia.Views
 
             //this.Focus();
         }
-
-
-
         private void ButtonDot_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             if (!txtTotal.Text.Contains("."))
