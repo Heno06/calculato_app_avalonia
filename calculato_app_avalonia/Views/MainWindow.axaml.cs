@@ -137,10 +137,10 @@ namespace calculato_app_avalonia.Views
             this.AttachDevTools();
 #endif
             this.KeyDown += MainWindow_KeyDown;
+            ButtonEquals.Focus();
         }
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
-            ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
             switch (e.Key)
             {
                 case Key.Enter:
@@ -235,7 +235,12 @@ namespace calculato_app_avalonia.Views
                 case Key.Back:
                     Backspace_Click(null, null);
                     break;
+                default:
+                    ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
+                    break;
+
             }
+            ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
         }
         private UserControl originalContent;
         private string option { get; set; }
@@ -255,6 +260,7 @@ namespace calculato_app_avalonia.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            EnableAllButtons();
             Button button = (Button)sender;
             string buttonText = button.Content.ToString();
 
@@ -325,10 +331,11 @@ namespace calculato_app_avalonia.Views
                     txtTotal.Text += buttonText;
                     Expression.Text += buttonText;
                 }
-                
+
 
             }
-            this.Focus();
+            ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
+
         }
         private void Operation_Click(object sender, RoutedEventArgs e)
         {
@@ -356,13 +363,13 @@ namespace calculato_app_avalonia.Views
             {
                 Expression.Text += " " + option + " ";
             }
-            this.Focus();
+            ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
+
+            //this.Focus();
         }
 
         private void ButtonEquals_Click(object sender, RoutedEventArgs e)
         {
-            if (!enterKeyPressed) {
-                equals = true;
             if (string.IsNullOrEmpty(Expression.Text) || Expression.Text.EndsWith("+ ") || Expression.Text.EndsWith("- ") || Expression.Text.EndsWith("* ") || Expression.Text.EndsWith("/ "))
             {
                 txtTotal.Text = "Invalid Format";
@@ -401,12 +408,15 @@ namespace calculato_app_avalonia.Views
                     finalResult -= double.Parse(intermediateParts[i + 1], CultureInfo.InvariantCulture);
                 }
             }
-            lastOperator = parts[parts.Length - 1].ToString();
 
-
-            if (equals)
+            if (!equals)
             {
-
+                lastOperator = parts.Length > 1 ? parts[parts.Length - 2] : string.Empty;
+                lastOperand = parts.Length > 1 ? double.Parse(parts[parts.Length - 1], CultureInfo.InvariantCulture) : 0;
+                equals = true;
+            }
+            else
+            {
                 switch (lastOperator)
                 {
                     case "+":
@@ -431,19 +441,12 @@ namespace calculato_app_avalonia.Views
                         break;
                 }
             }
-            else
-            {
-                lastOperator = intermediateParts.Count > 1 ? intermediateParts[1] : string.Empty;
-                lastOperand = intermediateParts.Count > 2 ? double.Parse(intermediateParts[2], CultureInfo.InvariantCulture) : 0;
-                equals = true;
-            }
 
             txtTotal.Text = finalResult.ToString("0.##########", CultureInfo.InvariantCulture);
             Expression.Text = finalResult.ToString("0.##########", CultureInfo.InvariantCulture);
-            this.Focus();
-            }
-            
+            ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
         }
+
 
 
 
@@ -454,7 +457,8 @@ namespace calculato_app_avalonia.Views
             EnableAllButtons();
             txtTotal.Text = "";
             Expression.Text = "";
-            this.Focus();
+            ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
+
         }
         private void ButtonPercent_Click(object sender, RoutedEventArgs e)
         {
@@ -490,7 +494,9 @@ namespace calculato_app_avalonia.Views
                 // Mark that percent was clicked
                 percentClicked = true;
             }
-            this.Focus();
+            ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
+
+            //this.Focus();
         }
 
 
@@ -508,6 +514,8 @@ namespace calculato_app_avalonia.Views
                 txtTotal.Text = txtTotal.Text;
                 Expression.Text = Expression.Text;
             }
+            ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
+
         }
         private void Mode_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
@@ -521,7 +529,8 @@ namespace calculato_app_avalonia.Views
                 LightMode();
                 mode = false;
             }
-            this.Focus();
+            ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
+
         }
         private void Backspace_Click(object sender, RoutedEventArgs e)
         {
@@ -550,7 +559,9 @@ namespace calculato_app_avalonia.Views
                     Expression.Text = string.Join(" ", expressionParts);
                 }
             }
-            this.Focus();
+            ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
+
+            //this.Focus();
         }
 
 

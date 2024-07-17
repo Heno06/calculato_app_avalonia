@@ -11,12 +11,13 @@
 	   Icon="/Assets/avalonia-logo.ico"
 	   xmlns:avaloniaSvg="clr-Namespace:Avalonia.Controls;assembly=Avalonia.Svg"
 	   Title="calculato_app_avalonia">
-	
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
+
+
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+		<vm:MainWindowViewModel/>
+	</Design.DataContext>
 	<Grid RowDefinitions="202, *">
 		<Grid Background="White" Name="TopBlock"  Grid.Row="0" RowDefinitions="67,Auto, *">
 			<Grid Grid.Row="1" ColumnDefinitions="*, 53">
@@ -28,17 +29,17 @@
 		</Grid>
 		<Grid Name="BottomBlock" Background="#F5F5F5" Grid.Row="1" RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*,*">
 			<Button Name="ButtonMode" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#E9E9E9" Background="#F5F5F5" CornerRadius="32" Margin="16" Width="64" Height="64" Grid.Row="0" Grid.Column="0" Click="Mode_Click">
-				<Svg Name="Mode" Height="18" Width="18" Path="C:\Users\begla\source\repos\calculato_app_avalonia\calculato_app_avalonia\Assets\Icons\Mode.svg"/>
+				<Svg Name="Mode" Height="18" Width="18" Path="/Assets/Icons/Mode.svg"/>
 			</Button>
 			<Button Name="ButtonPercent" Content="%" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontWeight="Bold" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="0" Grid.Column="1" Click="ButtonPercent_Click">
 				<Button.Styles>
 					<Style Selector="Button:pointerover /template/ ContentPresenter">
 						<Setter Property="Background" Value="#F53263">
-							
+
 						</Setter>
 					</Style>
 				</Button.Styles>
-				<Svg Name="Percent" Height="18" Width="18" Path="C:\Users\begla\source\repos\calculato_app_avalonia\calculato_app_avalonia\Assets\Icons\Percent.svg"/>
+				<Svg Name="Percent" Height="18" Width="18" Path="/Assets/Icons/Percent.svg"/>
 			</Button>
 			<Button Name="ButtonDiv" Tag="/" Content="/" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontWeight="Bold" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="0" Grid.Column="2" Click="Operation_Click">
 				<Button.Styles>
@@ -46,7 +47,7 @@
 						<Setter Property="Background" Value="#F53263"></Setter>
 					</Style>
 				</Button.Styles>
-				<Svg Name="Div" Height="18" Width="18" Path="C:\Users\begla\source\repos\calculato_app_avalonia\calculato_app_avalonia\Assets\Icons\Div.svg"/>
+				<Svg Name="Div" Height="18" Width="18" Path="/Assets/Icons/Div.svg"/>
 			</Button>
 			<Button Name="ButtonMult" Tag="*" Content="*" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontWeight="Bold" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="0" Grid.Column="3" Click="Operation_Click">
 				<Button.Styles>
@@ -54,7 +55,7 @@
 						<Setter Property="Background" Value="#F53263"></Setter>
 					</Style>
 				</Button.Styles>
-				<Svg Name="Mult" Height="18" Width="18" Path="C:\Users\begla\source\repos\calculato_app_avalonia\calculato_app_avalonia\Assets\Icons\Mult.svg"/>
+				<Svg Name="Mult" Height="18" Width="18" Path="/Assets/Icons/Mult.svg"/>
 			</Button>
 			<Button IsDefault="False" x:Name="Button7" Content="7" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  CornerRadius="32" Background="#eae9e9"  Margin="16" Width="64" Height="64" Grid.Row="1" Grid.Column="0" Click="Button_Click">
 				<Button.Styles>
@@ -76,14 +77,15 @@
 						<Setter Property="Background" Value="#F53263"></Setter>
 					</Style>
 				</Button.Styles>
-				9</Button>
+				9
+			</Button>
 			<Button x:Name="ButtonMinus" Tag="-" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="1" Grid.Column="3" Click="Operation_Click">
 				<Button.Styles>
 					<Style Selector="Button:pointerover /template/ ContentPresenter">
 						<Setter Property="Background" Value="#F53263"></Setter>
 					</Style>
 				</Button.Styles>
-				<Svg Name="Minus" Height="18" Width="18" Path="C:\Users\begla\source\repos\calculato_app_avalonia\calculato_app_avalonia\Assets\Icons\Minus.svg"/>
+				<Svg Name="Minus" Height="18" Width="18" Path="/Assets/Icons/Minus.svg"/>
 			</Button>
 			<Button IsDefault="False" x:Name="Button4" Content="4" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="2" Grid.Column="0" Click="Button_Click">
 				<Button.Styles>
@@ -91,45 +93,51 @@
 						<Setter Property="Background" Value="#F53263"></Setter>
 					</Style>
 				</Button.Styles>
-				4</Button>
+				4
+			</Button>
 			<Button IsDefault="False" x:Name="Button5" Content="5" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="2" Grid.Column="1" Click="Button_Click">
 				<Button.Styles>
 					<Style Selector="Button:pointerover /template/ ContentPresenter">
 						<Setter Property="Background" Value="#F53263"></Setter>
 					</Style>
-				</Button.Styles>5</Button>
+				</Button.Styles>5
+			</Button>
 			<Button IsDefault="False" x:Name="Button6" Content="6" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="2" Grid.Column="2" Click="Button_Click">
 				<Button.Styles>
 					<Style Selector="Button:pointerover /template/ ContentPresenter">
 						<Setter Property="Background" Value="#F53263"></Setter>
 					</Style>
-				</Button.Styles>6</Button>
+				</Button.Styles>6
+			</Button>
 			<Button x:Name="ButtonAdd" Tag="+" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="2" Grid.Column="3" Click="Operation_Click">
 				<Button.Styles>
 					<Style Selector="Button:pointerover /template/ ContentPresenter">
 						<Setter Property="Background" Value="#F53263"></Setter>
 					</Style>
 				</Button.Styles>
-				<Svg Name="Add" Height="18" Width="18" Path="C:\Users\begla\source\repos\calculato_app_avalonia\calculato_app_avalonia\Assets\Icons\Plus.svg"/>
+				<Svg Name="Add" Height="18" Width="18" Path="/Assets/Icons/Plus.svg"/>
 			</Button>
 			<Button IsDefault="False" x:Name="Button1" Content="1" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="3" Grid.Column="0" Click="Button_Click">
 				<Button.Styles>
 					<Style Selector="Button:pointerover /template/ ContentPresenter">
 						<Setter Property="Background" Value="#F53263"></Setter>
 					</Style>
-				</Button.Styles>1</Button>
+				</Button.Styles>1
+			</Button>
 			<Button IsDefault="False" x:Name="Button2" Content="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="3" Grid.Column="1" Click="Button_Click">
 				<Button.Styles>
 					<Style Selector="Button:pointerover /template/ ContentPresenter">
 						<Setter Property="Background" Value="#F53263"></Setter>
 					</Style>
-				</Button.Styles>2</Button>
+				</Button.Styles>2
+			</Button>
 			<Button IsDefault="False" x:Name="Button3" Content="3" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="3" Grid.Column="2" Click="Button_Click">
 				<Button.Styles>
 					<Style Selector="Button:pointerover /template/ ContentPresenter">
 						<Setter Property="Background" Value="#F53263"></Setter>
 					</Style>
-				</Button.Styles>3</Button>
+				</Button.Styles>3
+			</Button>
 			<Button  x:Name="ButtonEquals" Tag="=" Content="=" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" CornerRadius="32" Margin="16" Width="64" Height="144" Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Click="ButtonEquals_Click">
 				<Button.Background>
 					<LinearGradientBrush>
@@ -151,23 +159,25 @@
 						</Setter>
 					</Style>
 				</Button.Styles>
-				<Svg Height="18" Width="18" Path="C:\Users\begla\source\repos\calculato_app_avalonia\calculato_app_avalonia\Assets\Icons\Equals.svg"/>
+				<Svg Height="18" Width="18" Path="/Assets/Icons/Equals.svg"/>
 			</Button>
 			<Button x:Name="ButtonClear" Content="C" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="4" Grid.Column="0" Click="ButtonClear_Click">
-				<Svg Height="18" Width="18" Path="C:\Users\begla\source\repos\calculato_app_avalonia\calculato_app_avalonia\Assets\Icons\AC.svg"/>
+				<Svg Height="18" Width="18" Path="/Assets/Icons/AC.svg"/>
 			</Button>
 			<Button x:Name="Button0" Content="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="4" Grid.Column="1" Click="Button_Click" >
 				<Button.Styles>
 					<Style Selector="Button:pointerover /template/ ContentPresenter">
 						<Setter Property="Background" Value="#F53263"></Setter>
 					</Style>
-				</Button.Styles>0</Button>
+				</Button.Styles>0
+			</Button>
 			<Button x:Name="ButtonDot" Content="." VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="#1E1E1E" FontSize="24" FontFamily="Arimo Hebrew Subset" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="32" Background="#eae9e9" Margin="16" Width="64" Height="64" Grid.Row="4" Grid.Column="2" Click="ButtonDot_Click">
 				<Button.Styles>
 					<Style Selector="Button:pointerover /template/ ContentPresenter">
 						<Setter Property="Background" Value="#F53263"></Setter>
 					</Style>
-				</Button.Styles>.</Button>
+				</Button.Styles>.
+			</Button>
 		</Grid>
 	</Grid>
 </Window>
