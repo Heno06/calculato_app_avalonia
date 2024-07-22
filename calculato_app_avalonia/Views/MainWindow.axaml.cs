@@ -134,6 +134,7 @@ namespace calculato_app_avalonia.Views
 
             // Set the window to fullscreen
             this.WindowState = WindowState.Maximized;
+            this.ExtendClientAreaToDecorationsHint = true; // Extend client area to edge of screen
             this.Topmost = true; // Keep the window always on top
 
             // Optionally, focus on a specific button
