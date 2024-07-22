@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Windows;
 
 
 
@@ -130,14 +131,15 @@ namespace calculato_app_avalonia.Views
         public MainWindow()
         {
             InitializeComponent();
-            this.WindowState = WindowState.Maximized;
-#if DEBUG
-#endif
-            this.KeyDown += MainWindow_KeyDown;
-            EnableAllButtons();
 
+            // Set the window to fullscreen
+            this.WindowState = WindowState.Maximized;
+            this.Topmost = true; // Keep the window always on top
+
+            // Optionally, focus on a specific button
             ButtonEquals.Focus();
         }
+
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.Key)
