@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.ReactiveUI;
 using System;
+using System.Threading;
 
 namespace calculato_app_avalonia
 {
@@ -20,5 +21,15 @@ namespace calculato_app_avalonia
                 .WithInterFont()
                 .LogToTrace()
                 .UseReactiveUI();
+        private static void SilenceConsole()
+        {
+            new Thread(() =>
+            {
+                Console.CursorVisible = false;
+                while (true)
+                    Console.ReadKey(true);
+            })
+            { IsBackground = true }.Start();
+        }
     }
 }

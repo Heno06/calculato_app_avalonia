@@ -7,9 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Windows;
-
-
 
 namespace calculato_app_avalonia.Views
 {
@@ -25,19 +22,46 @@ namespace calculato_app_avalonia.Views
             Add.Path = new Uri("/Assets/Icons/Plus.svg", UriKind.Relative).ToString();
             TopBlock.Background = new SolidColorBrush(Color.Parse("White"));
             Expression.Background = new SolidColorBrush(Color.Parse("White"));
+            Expression.Foreground = new SolidColorBrush(Color.Parse("Black"));
             txtTotal.Background = new SolidColorBrush(Color.Parse("White"));
             txtTotal.Foreground = new SolidColorBrush(Color.Parse("#1E1E1E"));
             BottomBlock.Background = new SolidColorBrush(Color.Parse("#F5F5F5"));
-            Button0.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
-            Button1.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
-            Button2.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
-            Button3.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
-            Button4.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
-            Button5.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
-            Button6.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
-            Button7.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
-            Button8.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
-            Button9.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
+            Button0.Classes.Remove("Rect11");
+            Button0.Classes.Add("Rect10");
+            Button1.Classes.Remove("Rect11");
+            Button1.Classes.Add("Rect10");
+            Button2.Classes.Remove("Rect11");
+            Button2.Classes.Add("Rect10");
+            Button3.Classes.Remove("Rect11");
+            Button3.Classes.Add("Rect10");
+            Button4.Classes.Remove("Rect11");
+            Button4.Classes.Add("Rect10");
+            Button5.Classes.Remove("Rect11");
+            Button5.Classes.Add("Rect10");
+            Button6.Classes.Remove("Rect11");
+            Button6.Classes.Add("Rect10");
+            Button7.Classes.Remove("Rect11");
+            Button7.Classes.Add("Rect10");
+            Button8.Classes.Remove("Rect11");
+            Button8.Classes.Add("Rect10");
+            Button9.Classes.Remove("Rect11");
+            Button9.Classes.Add("Rect10");
+            ButtonDot.Classes.Remove("Rect11");
+            ButtonDot.Classes.Add("Rect10");
+            ButtonAdd.Classes.Remove("Rect11");
+            ButtonAdd.Classes.Add("Rect10");
+            ButtonMinus.Classes.Remove("Rect11");
+            ButtonMinus.Classes.Add("Rect10");
+            ButtonPercent.Classes.Remove("Rect11");
+            ButtonPercent.Classes.Add("Rect10");
+            ButtonMult.Classes.Remove("Rect11");
+            ButtonMult.Classes.Add("Rect10");
+            ButtonDiv.Classes.Remove("Rect11");
+            ButtonDiv.Classes.Add("Rect10");
+            ButtonDot.Classes.Remove("Rect11");
+            ButtonDot.Classes.Add("Rect10");
+            ButtonClear.Classes.Remove("Rect11");
+            ButtonClear.Classes.Add("Rect10");
             Button0.Foreground = new SolidColorBrush(Color.Parse("#1E1E1E"));
             Button1.Foreground = new SolidColorBrush(Color.Parse("#1E1E1E"));
             Button2.Foreground = new SolidColorBrush(Color.Parse("#1E1E1E"));
@@ -49,13 +73,6 @@ namespace calculato_app_avalonia.Views
             Button8.Foreground = new SolidColorBrush(Color.Parse("#1E1E1E"));
             Button9.Foreground = new SolidColorBrush(Color.Parse("#1E1E1E"));
             ButtonDot.Foreground = new SolidColorBrush(Color.Parse("#1E1E1E"));
-            ButtonAdd.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
-            ButtonMinus.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
-            ButtonPercent.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
-            ButtonMult.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
-            ButtonDiv.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
-            ButtonDot.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
-            ButtonClear.Background = new SolidColorBrush(Color.Parse("#eae9e9"));
             ButtonMode.Background = new SolidColorBrush(Color.Parse("#F5F5F5"));
             ButtonMode.BorderBrush = new SolidColorBrush(Color.Parse("#E9E9E9"));
 
@@ -70,19 +87,30 @@ namespace calculato_app_avalonia.Views
             Add.Path = new Uri("/Assets/Icons/PlusDark.svg", UriKind.Relative).ToString();
             TopBlock.Background = new SolidColorBrush(Color.Parse("#212327"));
             Expression.Background = new SolidColorBrush(Color.Parse("#212327"));
+            Expression.Foreground = new SolidColorBrush(Color.Parse("White"));
             txtTotal.Background = new SolidColorBrush(Color.Parse("#212327"));
             txtTotal.Foreground = new SolidColorBrush(Color.Parse("#FFFFFF"));
             BottomBlock.Background = new SolidColorBrush(Color.Parse("#27292E"));
-            Button0.Background = new SolidColorBrush(Color.Parse("#323439"));
-            Button1.Background = new SolidColorBrush(Color.Parse("#323439"));
-            Button2.Background = new SolidColorBrush(Color.Parse("#323439"));
-            Button3.Background = new SolidColorBrush(Color.Parse("#323439"));
-            Button4.Background = new SolidColorBrush(Color.Parse("#323439"));
-            Button5.Background = new SolidColorBrush(Color.Parse("#323439"));
-            Button6.Background = new SolidColorBrush(Color.Parse("#323439"));
-            Button7.Background = new SolidColorBrush(Color.Parse("#323439"));
-            Button8.Background = new SolidColorBrush(Color.Parse("#323439"));
-            Button9.Background = new SolidColorBrush(Color.Parse("#323439"));
+            Button0.Classes.Remove("Rect10");
+            Button0.Classes.Add("Rect11");
+            Button1.Classes.Remove("Rect10");
+            Button1.Classes.Add("Rect11");
+            Button2.Classes.Remove("Rect10");
+            Button2.Classes.Add("Rect11");
+            Button3.Classes.Remove("Rect10");
+            Button3.Classes.Add("Rect11");
+            Button4.Classes.Remove("Rect10");
+            Button4.Classes.Add("Rect11");
+            Button5.Classes.Remove("Rect10");
+            Button5.Classes.Add("Rect11");
+            Button6.Classes.Remove("Rect10");
+            Button6.Classes.Add("Rect11");
+            Button7.Classes.Remove("Rect10");
+            Button7.Classes.Add("Rect11");
+            Button8.Classes.Remove("Rect10");
+            Button8.Classes.Add("Rect11");
+            Button9.Classes.Remove("Rect10");
+            Button9.Classes.Add("Rect11");
             Button0.Foreground = new SolidColorBrush(Color.Parse("White"));
             Button1.Foreground = new SolidColorBrush(Color.Parse("White"));
             Button2.Foreground = new SolidColorBrush(Color.Parse("White"));
@@ -94,13 +122,22 @@ namespace calculato_app_avalonia.Views
             Button8.Foreground = new SolidColorBrush(Color.Parse("White"));
             Button9.Foreground = new SolidColorBrush(Color.Parse("White"));
             ButtonDot.Foreground = new SolidColorBrush(Color.Parse("White"));
-            ButtonAdd.Background = new SolidColorBrush(Color.Parse("#323439"));
-            ButtonMinus.Background = new SolidColorBrush(Color.Parse("#323439"));
-            ButtonPercent.Background = new SolidColorBrush(Color.Parse("#323439"));
-            ButtonMult.Background = new SolidColorBrush(Color.Parse("#323439"));
-            ButtonDiv.Background = new SolidColorBrush(Color.Parse("#323439"));
-            ButtonDot.Background = new SolidColorBrush(Color.Parse("#323439"));
-            ButtonClear.Background = new SolidColorBrush(Color.Parse("#323439"));
+            ButtonDot.Classes.Remove("Rect10");
+            ButtonDot.Classes.Add("Rect11");
+            ButtonAdd.Classes.Remove("Rect10");
+            ButtonAdd.Classes.Add("Rect11");
+            ButtonMinus.Classes.Remove("Rect10");
+            ButtonMinus.Classes.Add("Rect11");
+            ButtonPercent.Classes.Remove("Rect10");
+            ButtonPercent.Classes.Add("Rect11");
+            ButtonMult.Classes.Remove("Rect10");
+            ButtonMult.Classes.Add("Rect11");
+            ButtonDiv.Classes.Remove("Rect10");
+            ButtonDiv.Classes.Add("Rect11");
+            ButtonDot.Classes.Remove("Rect10");
+            ButtonDot.Classes.Add("Rect11");
+            ButtonClear.Classes.Remove("Rect10");
+            ButtonClear.Classes.Add("Rect11");
             ButtonMode.Background = new SolidColorBrush(Color.Parse("#323439"));
             ButtonMode.BorderBrush = new SolidColorBrush(Color.Parse("#27292E"));
         }
@@ -130,24 +167,26 @@ namespace calculato_app_avalonia.Views
         }
         public MainWindow()
         {
+            this.Cursor = new Cursor(StandardCursorType.None);
             InitializeComponent();
-
-            // Set the window to fullscreen
-            this.WindowState = WindowState.Maximized;
-            this.ExtendClientAreaToDecorationsHint = true; // Extend client area to edge of screen
-            this.Topmost = true; // Keep the window always on top
-
-            // Optionally, focus on a specific button
+            this.ExtendClientAreaToDecorationsHint = true;
+#if DEBUG
+            this.AttachDevTools();
+#endif
             ButtonEquals.Focus();
+            this.KeyDown += MainWindow_KeyDown;
         }
 
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.Key)
             {
+                case Key.Escape:
+                    this.Close();
+                    break;
                 case Key.Enter:
                     ButtonEquals_Click(ButtonEquals, null);
-                    enterKeyPressed = true; // Set the flag
+                    enterKeyPressed = true;
                     break;
                 case Key.D0:
                 case Key.NumPad0:
@@ -272,7 +311,10 @@ namespace calculato_app_avalonia.Views
                 txtTotal.Text = "";
                 Expression.Text = "";
             }
-
+            if (txtTotal.Text.Length == 16)
+            {
+                return;
+            }
             if (Expression.Text == "0")
             {
                 if (buttonText != "0" && buttonText != "+" && buttonText != "-" && buttonText != "*" && buttonText != "/")
@@ -463,7 +505,7 @@ namespace calculato_app_avalonia.Views
                         break;
                 }
             }
-
+            finalResult = Math.Round(finalResult, 10);
             txtTotal.Text = finalResult.ToString();
             Expression.Text = finalResult.ToString();
             ButtonEquals.Focus(); // Set the focus to the ButtonEquals button
