@@ -6,14 +6,16 @@
 	   xmlns:local="clr-Namespace:calculator_app_avalonia"
 	   x:Class="calculato_app_avalonia.Views.MainWindow"
 	   x:DataType="vm:MainWindowViewModel"
-	   Width="700"
-	   Height="350"	
+
 	   Icon="/Assets/avalonia-logo.ico"
 	   xmlns:avaloniaSvg="clr-Namespace:Avalonia.Controls;assembly=Avalonia.Svg"
 	   Title="calculato_app_avalonia"
 	   Background="#F5F5F5"
 	   Cursor="None"
-			>
+	   WindowState="FullScreen"
+       ExtendClientAreaToDecorationsHint="True"
+	   ExtendClientAreaChromeHints="NoChrome"
+	   ExtendClientAreaTitleBarHeightHint="-1"	>
 	
 	<Window.Styles>
 		<Style Selector="Button.Rect10">
